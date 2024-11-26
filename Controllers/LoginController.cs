@@ -38,7 +38,10 @@ namespace Bibliotec.Controllers
                 return LocalRedirect("~/Login");
             } else{
                 Console.WriteLine($"Eba você entrou");
+                HttpContext.Session.SetString("UsuarioID", usuarioBuscado.UsuarioID.ToString());
+                HttpContext.Session.SetString("AdminID", usuarioBuscado.Admin.ToString());
                 return LocalRedirect("~/Livro");
+                
                 
             }
 
@@ -51,8 +54,7 @@ namespace Bibliotec.Controllers
                     
             //     }
             // }
-
-            return View();
+  
         }
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         // public IActionResult Error()
